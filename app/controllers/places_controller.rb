@@ -1,17 +1,19 @@
 class PlacesController < ApplicationController
-  before_action :set_place,except:[:index, :new,  :create]
+  before_action :set_place, except:[ :index, :new,  :create]
   before_action :authenticate_user!, except: [:show]
 
   def index
-    @places = current_user.places
+    @places = Place.all
   end
 
   def new
-    @place = current_user.places.build
+    @place = Place.new
   end
 
   def create
-    @place = current_user.places.build(places_params)
+    @place = Place.new(place_params)
+    @user = current_user
+    @place.user = @user
     if @place.save
       redirect_to place_path(@place), notice: "Saved Success"
     else
@@ -21,7 +23,6 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @place.photo
   end
 
   def update
@@ -39,6 +40,6 @@ class PlacesController < ApplicationController
   end
 
   def place_params
-    params.required(:place).permit(:name, :address, :description, :price_per_day, :photo, :capacity )
+    params.required(:place).permit(:name, :address, :description, :price_per_day, :capacity )
   end
 end
