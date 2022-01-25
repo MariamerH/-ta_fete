@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -9,4 +11,8 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-lewagon h1 {
+  font-family: 'Pacifico', cursive;
 }
