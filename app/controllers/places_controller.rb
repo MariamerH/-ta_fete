@@ -1,35 +1,65 @@
 class PlacesController < ApplicationController
-  before_action :set_place,except:[:index, :new,  :create]
-  before_action :authenticate_user!, except: [:show]
+  before_action :set_place, only: [:show, :edit, :update]
+  # before_action :set_place,except:[:index, :new,  :create]
+  # before_action :authenticate_user!, except: [:show]
+
+  # def index
+  #   @places = current_user.places
+  # end
 
   def index
-    @places = current_user.places
+    @places = Place.all
   end
+
+  # def new
+  #   @place = current_user.places.build
+  # end
 
   def new
-    @place = current_user.places.build
+    @place = Place.new
   end
 
+  # def create
+  #   @place = current_user.places.build(places_params)
+  #   if @place.save
+  #     redirect_to place_path(@place), notice: "Saved Success"
+  #   else
+  #     flash[:alert] = @place.errors.full_messages
+  #     render :new
+  #   end
+  # end
+
   def create
-    @place = current_user.places.build(places_params)
+    @place = Place.new(place_params)
+
     if @place.save
-      redirect_to place_path(@place), notice: "Saved Success"
+      redirect_to @place, notice: 'Place was successfully created.'
     else
-      flash[:alert] = @place.errors.full_messages
       render :new
     end
   end
 
   def show
-    @place.photo
+    @place
   end
+
+  # def update
+  #   if @place.update(place_params)
+  #     flash[:notice] = "Saved..."
+  #   else
+  #     flash[:alert] = @place.errors.full_messages
+  #   end
+  # end
 
   def update
     if @place.update(place_params)
-      flash[:notice] = "Saved..."
+      redirect_to @place, notice: 'Place was successfully updated.'
     else
-      flash[:alert] = @place.errors.full_messages
+      render :edit
     end
+  end
+
+  def edit
   end
 
   private
