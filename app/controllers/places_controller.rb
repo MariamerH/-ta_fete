@@ -21,7 +21,7 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @photos = @place.photos
+    @place.photo
   end
 
   def update
@@ -39,6 +39,6 @@ class PlacesController < ApplicationController
   end
 
   def place_params
-    params.required(:place).permit(:home_type,:room_type,:accommodate,:bed_room,:bath_room,:listing_name,:summary,:address,:is_kitchen,:is_air,:is_internet,:is_tv,:price,:active)
+    params.required(:place).permit(:name, :address, :description, :price_per_day, :photo, :capacity)
   end
 end
