@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts 'creando place'
+
+Place.create( name: 'Local 1', address: 'lima', description: 'descripcion', price_per_day: 4, capacity: 12, user_id: 1)
+
+puts 'place creado'
