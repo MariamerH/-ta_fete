@@ -4,7 +4,9 @@
       <%= link_to "#", class: "navbar-brand" do %>
         <%= image_tag "garlands.png" %>
       <% end %>
-      <h1> Ta Fête </h1>
+      <%= link_to places_path do %>
+        <h1> Ta Fête </h1>
+      <% end %>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

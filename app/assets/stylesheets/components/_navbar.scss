@@ -3,6 +3,9 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  a {
+    text-decoration: black;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,4 +18,5 @@
 
 .navbar-lewagon h1 {
   font-family: 'Pacifico', cursive;
+  color: black;
 }

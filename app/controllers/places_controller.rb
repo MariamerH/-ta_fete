@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :set_place, except:[ :index, :new,  :create]
+  before_action :set_place, except:[ :index, :new, :create]
   before_action :authenticate_user!, except: [:show]
 
   def index
@@ -31,6 +31,12 @@ class PlacesController < ApplicationController
     else
       flash[:alert] = @place.errors.full_messages
     end
+  end
+
+  def destroy
+    @place.destroy
+
+    redirect_to places_path
   end
 
   private

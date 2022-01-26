@@ -1,7 +1,29 @@
-<h1><%= @place.name %></h1>
+<div class='container my-5'>
+  <h1><%= @place.name %></h1>
 
-<%= @place.address %>
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <% @place.photos.each_with_index do |photo, index| %>
+        <div class="carousel-item <%= 'active' if index == 0 %>">
+          <%= cl_image_tag photo.key, class: 'd-block w-100' %>
+        </div>
+      <% end %>
+    </div>
+    <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </button>
+  </div>
 
-<% @place.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+  <p><strong>Address: </strong><%= @place.address %></p>
+  <p><strong>Description: </strong><%= @place.description %></p>
+  <p><strong>Price per day: </strong><%= @place.price_per_day %></p>
+  <p><strong>Capacity: </strong><%= @place.capacity %></p>
+
+  <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-success' %>
+  <%= link_to 'Delete', place_path(@place), class: 'btn btn-danger', method: :delete %>
+</div>
