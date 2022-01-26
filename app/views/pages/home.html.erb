@@ -35,7 +35,7 @@
 
 <div class="container mt-5 d-flex justify-content-around">
   <% @places.take(3).each do |place| %>
-    <div class="card" style="width: 18rem;">
+    <div class="card-trip" style="width: 18rem;">
       <%= cl_image_tag place.photos.first.key, width: 120, crop: :fit, class:"card-img-top" %>
         <div class="card-body">
           <div>
