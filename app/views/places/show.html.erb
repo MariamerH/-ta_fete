@@ -1,20 +1,20 @@
 <div class='container my-5'>
-  <div class="row">
+  <div class="d-flex">
     <% @place.photos.each_with_index do |photo, index| %>
-      <div class="col-7">
-        <%= cl_image_tag photo.key, class: 'd-block w-100', crop: :fill, aspect_ratio: "2:3" %>
+      <div class="pb-5">
+        <%= cl_image_tag photo.key, class: 'd-block w-100', crop: :fill %>
       </div>
     <% end %>
-    <div class="col-5">
-        <div class="card" style="width: 25rem;">
+    <div class="pb-5">
+        <div class="card h-100">
           <div class="card-body">
             <h1 class="card-title"><%= @place.name %></h1>
-            <p class="card-text"><strong>Address: </strong><%= @place.address %></p>
-            <p class="card-text"><strong>Description: </strong><%= @place.description %></p>
-            <p class="card-text"><strong>Price per day: </strong><%= @place.price_per_day %></p>
-            <p class="card-text"><strong>Capacity: </strong><%= @place.capacity %></p>
-            <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-success' %>
-            <%= link_to 'Delete', place_path(@place), class: 'btn btn-danger', method: :delete %>
+            <p class="card-text"><strong>Ciudad: </strong><%= @place.address %></p>
+            <p class="card-text"><strong>Descripcion: </strong><%= @place.description %></p>
+            <p class="card-text"><strong>Precio por dia:</strong> $<%= @place.price_per_day %></p>
+            <p class="card-text"><strong>Capacidad: </strong><%= @place.capacity %></p>
+            <%= link_to 'Editar', edit_place_path(@place), class: "btn btn-info" %>
+            <%= link_to 'Eliminar', place_path(@place), class: "btn btn-info", method: :delete %>
           </div>
     </div>
   </div>
