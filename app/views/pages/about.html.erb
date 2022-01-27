@@ -1,0 +1,21 @@
+<h1>Hello <%= current_user.name %></h1>
+
+<div class="container-profil">
+  <div>
+    <p><strong>Your full name</strong>: <%= @user.name %></p>
+    <p><strong>Your email</strong>: <%= @user.email %></p>
+    <p><%= link_to 'Edit profil', edit_user_registration_path %></p>
+    <p><%= link_to 'Add a place', new_place_path %></p>
+  </div>
+
+  <div>
+    <h3>Your places</h3>
+    <ul>
+    <% @places.each do |place| %>
+      <% if place.user_id == current_user.id %>
+        <li><%= link_to place.name, place_path(place) %></li>
+      <% end %>
+    <% end %>
+    </ul>
+  </div>
+</div>
