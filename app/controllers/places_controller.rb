@@ -15,7 +15,7 @@ class PlacesController < ApplicationController
     @user = current_user
     @place.user = @user
     if @place.save
-      redirect_to place_path(@place), notice: "Saved Success"
+      redirect_to place_path(@place), notice: "Sitio creado exitosamente"
     else
       flash[:alert] = @place.errors.full_messages
       render :new
@@ -27,16 +27,17 @@ class PlacesController < ApplicationController
 
   def update
     if @place.update(place_params)
-      flash[:notice] = "Saved..."
+      redirect_to place_path(@place), notice: "Sitio actualizado exitosamente"
     else
       flash[:alert] = @place.errors.full_messages
     end
   end
 
-  def destroy
+  def delete
+    @place = Place.find(place[:id])
     @place.destroy
-
-    redirect_to places_path
+    
+    redirect_to places_path, notice: "Sitio eliminado"
   end
 
   private
