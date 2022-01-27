@@ -1,24 +1,28 @@
-<h1>Hello <%= current_user.first_name %></h1>
+<div class="container">
+    <h1>¡Hola <%= current_user.first_name %>!</h1>
 
-<div class="container-profil">
-  <div>
-    <p><strong>Your full name</strong>: <%= "#{@user.first_name} #{@user.last_name}" %></p>
-    <p><strong>Your email</strong>: <%= @user.email %></p>
-    <p><%= link_to 'Edit profil', edit_user_registration_path %></p>
-    <p><%= link_to 'Add a place', new_place_path %></p>
-  </div>
-
-  <div>
-    <h3>Your places</h3>
+  <div class="tabbed-pane-nav u-clearfix js-nav">
     <ul>
-    <% @places.each do |place| %>
-      <% if place.user_id == current_user.id %>
-        <li><%= link_to place.name, place_path(place) %></li>
-      <% end %>
-    <% end %>
+      <li class="tabbed-pane-nav-item">
+        <a class="tabbed-pane-nav-item-button js-member-profile active">Nombres y apellidos</a>
+        <p><%= "#{@user.first_name} #{@user.last_name}" %></p>
+      </li>
+      <li class="tabbed-pane-nav-item">
+        <a class="tabbed-pane-nav-item-button js-member-activity">Correo electrónico</a>
+        <p><%= @user.email %></p>
+      </li>
+      <li class="tabbed-pane-nav-item">
+        <a class="tabbed-pane-nav-item-button js-member-cards" data-tab="cards" href="/mariahenriquez1/cards">Mis locales creados</a>
+          <ul>
+          <% @places.each do |place| %>
+            <% if place.user_id == current_user.id %>
+              <li><%= link_to place.name, place_path(place) %></li>
+            <% end %>
+          <% end %>
+          </ul>
     </ul>
   </div>
 
-  <div>
-  <h3>Accepted bookings </h3>
+    <p><%= link_to 'Edita tu perfil', edit_user_registration_path, class:"btn btn-verde" %></p>
+    <p><%= link_to 'Agrega otro local para arrendar', new_place_path, class:"btn btn-azul" %></p>
 </div>
