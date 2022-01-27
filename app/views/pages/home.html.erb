@@ -33,23 +33,30 @@
   </button>
 </div>
 
-<div class="container mt-5 d-flex justify-content-around">
-  <% @places.take(3).each do |place| %>
-    <div class="card-trip" style="width: 18rem;">
-      <%= cl_image_tag place.photos.first.key, width: 120, crop: :fit, class:"card-img-top" %>
-        <div class="card-body">
-          <div>
-            <h2 class="card-title"><%= place.name %></h2>
-            <p class="card-text"><%= place.address %></p>
+<!-- aqui inician las cards-->
+<div class='container mt-5'>
+  <h1 class='text-center'>Encuentra tu lugar ideal</h1>
+ 
+  <div class='cards mt-5'>
+    <% @places.each do |place| %>
+      <div class="card-product">
+        <%= cl_image_tag place.photos.first.key, width: 120, crop: :fill %>
+        <div class="card-product-infos">
+          <h2><%= place.name %></h2>
+          <p><%= place.description %></p>
+          <p><%= place.address %></p>
+          <div class="d-flex justify-content-end">
+          <%= link_to 'See details', place_path(place), class: "btn btn-info" %>
           </div>
-            <h2 class="card-trip-pricing"><%= place.price_per_day %></h2>
         </div>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
+<!-- aqui terminan las cards-->
 
-
+<!-- aqui inicia el footer-->
 <div class="footer">
   <div class="footer-links">
     <a href="#"><i class="fab fa-github"></i></a>
