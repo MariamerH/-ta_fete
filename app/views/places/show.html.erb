@@ -2,7 +2,7 @@
   <div class="d-flex">
     <% @place.photos.each_with_index do |photo, index| %>
       <div class="pb-5">
-        <%= cl_image_tag photo.key, class: 'd-block w-100', crop: :fill %>
+        <%= cl_image_tag photo.key, class: 'd-block w-50', crop: :fill %>
       </div>
     <% end %>
     <div class="pb-5">
@@ -13,8 +13,12 @@
             <p class="card-text"><strong>Descripcion: </strong><%= @place.description %></p>
             <p class="card-text"><strong>Precio por dia:</strong> $<%= @place.price_per_day %></p>
             <p class="card-text"><strong>Capacidad: </strong><%= @place.capacity %></p>
-            <%= link_to 'Editar', edit_place_path(@place), class: "btn btn-info" %>
-            <%= link_to 'Eliminar', place_path(@place), class: "btn btn-info", method: :delete %>
+            <% if @place.user_id == current_user.id %>
+              <%= link_to 'Editar', edit_place_path(@place), class: "btn btn-success" %>
+              <%= link_to 'Eliminar', place_path(@place), class: "btn btn-primary", method: :delete %>
+            <% else %>
+              <%= link_to 'Arrendar', new_place_booking_path(@place), class: "btn btn-primary" %>
+            <% end %>  
           </div>
     </div>
   </div>
