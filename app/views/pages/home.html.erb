@@ -5,7 +5,7 @@
       <%= image_tag "fiesta_carrousel_1.jpg", class:"d-block w-100 home-img" %>
       <div class="carousel-caption d-none d-md-block">
         <h5>Tu fiesta en el lugar ideal</h5>
-        <p>haz realidad la fiesta tan soñada</p>
+        <p>Haz realidad la fiesta tan soñada</p>
       </div>
     </div>
     <div class="carousel-item home-carousel">
@@ -36,11 +36,11 @@
 <!-- aqui inician las cards-->
 <div class='container mt-5'>
   <h1 class='text-center'>Encuentra tu lugar ideal</h1>
- 
+
   <div class='cards mt-5'>
     <% @places.each do |place| %>
       <div class="card-product">
-        <%= cl_image_tag place.photos.first.key, width: 120, crop: :fill %>
+        <%= cl_image_tag place.photos.first.key, width: 300, crop: :fill %>
         <div class="card-product-infos">
           <h2><%= place.name %></h2>
           <p><%= place.description %></p>
