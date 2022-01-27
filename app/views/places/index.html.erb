@@ -1,17 +1,19 @@
 <div class="container">
-<h1>Mis Locales</h1>
-<%= link_to "Agregar", new_place_path, class:"btn btn-primary" %>
+<h1 class="titlemylocals">Mis Locales</h1>
+<%= link_to "Agregar", new_place_path, class:"btn btn-verde" %>
     <table class="table">
-    <thead class="thead-dark">
-        <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Dirección</th>
-        <th scope="col">Precio</th>
-        <th scope="col">Aforo</th>
-        <th scope="col">Acciones</th>
-        </tr>
-  </thead>
+      <thead class="thead-dark">
+          <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Ciudad</th>
+          <th scope="col">Costo/Día/S</th>
+          <th scope="col">Aforo</th>
+          <th scope="col"></th>
+          <th scope="col">Acciones</th>
+          <th scope="col"></th>
+          </tr>
+      </thead>
     <% @places.each do |place| %>
   <tbody>
     <tr>
@@ -20,15 +22,15 @@
       <td><%= place.address %></td>
       <td><%= place.price_per_day %></td>
       <td><%= place.capacity %></td>
-      <td><%= link_to '<i class="fas fa-user-edit"></i>'.html_safe, edit_place_path(place), class:"btn btn-warning" %></td>
+      <td><%= link_to '<i class="fas fa-user-edit"></i>'.html_safe, edit_place_path(place), class:"btn btn-naranja" %></td>
       <td><%= link_to "Eliminar", "#", class:"btn btn-danger" %></td>
-      <td><%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, "#", class:"btn btn-danger" %></td>
+      <td><%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, "#", class:"btn btn-rojo" %></td>
       
     </tr>
     <% end %>
    </tbody> 
 </table>
 
-<%= link_to "Volver al menú principal", root_path, class:"btn btn-success" %>
+<%= link_to "Volver al menú principal", root_path, class:"btn btn-verde" %>
 </div>
 
