@@ -16,6 +16,7 @@
       </thead>
     <% @places.each do |place| %>
   <tbody>
+  <% if place.user_id == current_user.id %>
     <tr>
       <th scope="row"><%= place.id %></th>
       <td><%= place.name %></td>
@@ -23,10 +24,10 @@
       <td><%= place.price_per_day %></td>
       <td><%= place.capacity %></td>
       <td><%= link_to '<i class="fas fa-user-edit"></i>'.html_safe, edit_place_path(place), class:"btn btn-naranja" %></td>
-      <td><%= link_to "Eliminar", "#", class:"btn btn-danger" %></td>
-      <td><%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, "#", class:"btn btn-rojo" %></td>
+      <td><%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, place_path(place), class:"btn btn-rojo", method: :delete %></td>
       
     </tr>
+    <% end %>
     <% end %>
    </tbody> 
 </table>
