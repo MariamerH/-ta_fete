@@ -33,10 +33,9 @@ class PlacesController < ApplicationController
     end
   end
 
-  def delete
-    @place = Place.find(place[:id])
+  def destroy
     @place.destroy
-    
+
     redirect_to places_path, notice: "Sitio eliminado"
   end
 
