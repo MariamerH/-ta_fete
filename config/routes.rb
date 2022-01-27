@@ -4,5 +4,12 @@ Rails.application.routes.draw do
   resources :places do
     resources :bookings, only: [:new, :create]
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :bookings, only: :destroy do
+    member do
+      patch 'accept'
+      patch 'reject'
+    end
+  end
+  get '/', to: 'pages#home'
+  get '/about', to: 'pages#about'
 end
