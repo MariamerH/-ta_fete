@@ -1,11 +1,14 @@
 <div class="container">
-  <%= simple_form_for(@place) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.input :description %>
-    <%= f.input :price_per_day %>
-    <%= f.input :capacity %>
-    <%= f.submit %>
-  <% end %>
+  <div class='form-new'>
+    <h1>Publica tu local para alquilar</h1>
+    <%= simple_form_for(@place) do |f| %>
+      <%= f.input :name, placeholder: 'Título', label: false %>
+      <%= f.input :address, placeholder: 'Dirección', label: false %>
+      <%= f.input :description, placeholder: 'Descripción', label: false %>
+      <%= f.input :price_per_day, placeholder: 'Precio por día', label: false %>
+      <%= f.input :capacity,  placeholder: 'Capacidad', label: false %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }, label: 'Sube fotos del local' %>
+      <%= f.button :submit, class: 'btn btn-primary', value: 'Publicar local' %>
+    <% end %>
+  </div>
 </div>

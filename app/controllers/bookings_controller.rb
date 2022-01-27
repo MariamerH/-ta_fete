@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @place = Place.find(params[:place_id])
   end
 
   def create
