@@ -20,29 +20,6 @@
     </div>
   </div>
 
-
-  <div class="tabbed-pane-nav u-clearfix js-nav">
-    <ul>
-      <li class="tabbed-pane-nav-item">
-        <a class="tabbed-pane-nav-item-button js-member-profile active">Nombres y apellidos</a>
-        <p><%= "#{@user.first_name} #{@user.last_name}" %></p>
-      </li>
-      <li class="tabbed-pane-nav-item">
-        <a class="tabbed-pane-nav-item-button js-member-activity">Correo electrónico</a>
-        <p><%= @user.email %></p>
-      </li>
-      <li class="tabbed-pane-nav-item">
-        <a class="tabbed-pane-nav-item-button js-member-cards" data-tab="cards" href="/mariahenriquez1/cards">Mis locales creados</a>
-          <ul>
-          <% @places.each do |place| %>
-            <% if place.user_id == current_user.id %>
-              <li><%= link_to place.name, place_path(place) %></li>
-            <% end %>
-          <% end %>
-          </ul>
-    </ul>
-  </div>
-
-    <p><%= link_to 'Edita tu perfil', edit_user_registration_path, class:"btn btn-verde" %></p>
-    <p><%= link_to 'Agrega otro local para arrendar', new_place_path, class:"btn btn-azul" %></p>
+    <p><%= link_to 'Edita tu perfil', edit_user_registration_path, class:"btn btn-warning mt-2 raidius" %></p>
+    <p><%= link_to 'Agrega otro local para arrendar', new_place_path, class:"btn btn-success raidius" %></p>
 </div>
