@@ -12,7 +12,15 @@
 @import "components/index";
 @import "pages/index";
 
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.titlemylocals {
+  color: #355070;
+  font-family: 'Ubuntu', sans-serif;
+}
+
 .fa-check-circle {
   color: rgb(34, 197, 42);
   font-size: 48px;
+
 }

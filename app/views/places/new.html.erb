@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class='form'>
-    <h1>Publica tu local para alquilar</h1>
+    <h1 class="text-center">Publica tu local para alquilar</h1>
     <%= simple_form_for(@place) do |f| %>
       <%= f.input :name, placeholder: 'Título', label: false %>
       <%= f.input :address, placeholder: 'Dirección', label: false %>
@@ -9,7 +9,7 @@
       <%= f.input :price_per_day, placeholder: 'Precio por día', label: false %>
       <%= f.input :capacity,  placeholder: 'Capacidad', label: false %>
       <%= f.input :photo, as: :file, label: 'Sube una foto del local' %>
-      <%= f.button :submit, class: 'btn btn-primary', value: 'Publicar local' %>
+      <%= f.button :submit, class: 'btn btn-info', value: 'Publicar local' %>
     <% end %>
   </div>
 </div>
