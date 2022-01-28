@@ -1,11 +1,11 @@
 <div class='container my-5'>
-  <div class="d-flex">
+  <div class="row">
     <% @place.photos.each_with_index do |photo, index| %>
-      <div class="pb-5">
-        <%= cl_image_tag photo.key, class: 'd-block w-50', crop: :fill %>
+      <div class="col-7">
+        <%= cl_image_tag photo.key, class: 'd-block', :width=>600, :height=>600, :crop=>:fit  %>
       </div>
     <% end %>
-    <div class="pb-5">
+    <div class="col-5">
         <div class="card h-100">
           <div class="card-body">
             <h1 class="card-title"><%= @place.name %></h1>
@@ -18,7 +18,7 @@
               <%= link_to 'Eliminar', place_path(@place), class: "btn btn-primary", method: :delete %>
             <% else %>
               <%= link_to 'Arrendar', new_place_booking_path(@place), class: "btn btn-primary" %>
-            <% end %>  
+            <% end %>
           </div>
     </div>
   </div>
