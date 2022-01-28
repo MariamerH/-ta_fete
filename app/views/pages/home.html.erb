@@ -1,24 +1,22 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active home-carousel">
-      <%= image_tag "fiesta_piscina.jpg", class:"d-block w-100 home-img" %>
+      <%= image_tag "carrusel_1.jpg", class:"d-block w-100 home-img" %>
       <div class="carousel-caption d-none d-md-block">
-        <h5>Tu fiesta en el lugar ideal</h5>
-        <p>Haz realidad la fiesta tan soñada</p>
+        <h5>¿No sabes dónde alquilar un espacio para una ocasión especial?</h5>
+        <p>¡No importa nostros te ayudamos!</p>
       </div>
     </div>
     <div class="carousel-item home-carousel">
-      <%= image_tag "carrusel_1.jpg", class:"d-block w-100 home-img" %>
+      <%= image_tag "fiesta_piscina.jpg", class:"d-block w-100 home-img" %>
       <div class="carousel-caption d-none d-md-block">
         <h5>Los mejores lugares para tu fiesta</h5>
-        <p>Todos a tu alcance</p>
       </div>
     </div>
     <div class="carousel-item home-carousel">
       <%= image_tag "card_place_3.jpg", class:"d-block w-100 home-img" %>
       <div class="carousel-caption d-none d-md-block">
         <h5>Sólo ubica tu lugar preferido</h5>
-        <p>Nosotros nos encargamos del resto!</p>
       </div>
     </div>
   </div>
@@ -38,21 +36,29 @@
 
   <div class='cards mt-5'>
     <% @places.each do |place| %>
-      <div class="card-product">
-        <%= cl_image_tag place.photo.key, width: 300, crop: :fill %>
-        <div class="card-product-infos">
-          <h2><%= place.name %></h2>
-          <p><%= place.description %></p>
-          <p><%= place.address %></p>
-          <div class="d-flex justify-content-end">
-          <% if user_signed_in? %>
-            <%= link_to 'Ver detalles', place_path(place), class: "btn btn-info" %>
-          <% else %>
-            <%= link_to 'Ver detalles', new_user_session_path, class: "btn btn-info" %>
-          <% end %>
+      <% if user_signed_in? %>
+        <%= link_to place_path(place), class:"text-decoration-none" do  %>
+          <div class="card-product">
+            <%= cl_image_tag place.photo.key %>
+            <div class="card-product-infos">
+              <h2><%= place.name %></h2>
+              <p><%= place.description %></p>
+              <p><%= place.address %></p>
+            </div>
           </div>
-        </div>
-      </div>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path, class:"text-decoration-none" do %>
+          <div class="card-product">
+            <%= cl_image_tag place.photo.key %>
+            <div class="card-product-infos">
+              <h2><%= place.name %></h2>
+              <p><%= place.description %></p>
+              <p><%= place.address %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>

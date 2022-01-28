@@ -17,7 +17,7 @@
 .card-product img {
   height: 120px;
   width: 120px;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .card-product h2 {
@@ -41,15 +41,8 @@
   color: #355070;
   font-family: 'Ubuntu', sans-serif;
   background-color: #f8e4d9;
-  .btn {
-    padding: 5px 10px;
-    font-size: 12px;
-    background-color: #e56b6f;
-    color: #f8e4d9;
-    border-color: #e56b6f;
-    &:hover {
-      background-color: #cd6873;
-    }
+  .hover{
+    text-decoration: none;
   }
 }
 
