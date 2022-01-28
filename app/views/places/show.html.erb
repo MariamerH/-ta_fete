@@ -1,7 +1,12 @@
 <div class='container my-5'>
   <div class="row">
       <div class="col-7">
-        <%= cl_image_tag @place.photo.key, class: 'd-block', :width=>600, :height=>600, :crop=>:fit  %>
+        <% if @place.photo.key %>
+          <%= cl_image_tag @place.photo.key, class: 'd-block', :width=>600, :height=>600, :crop=>:fit  %>
+         <% else %>
+          <img src="https://images.unsplash.com/photo-1523301343968-6a6ebf63c672?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80
+" alt="">
+        <% end %>
       </div>
     <div class="col-5">
         <div class="card h-100">

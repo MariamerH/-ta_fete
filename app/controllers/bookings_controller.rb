@@ -1,9 +1,12 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
 
+
   def new
     @booking = Booking.new
     @place = Place.find(params[:place_id])
+    authorize @booking
+    @user = current_user
   end
 
   def create
