@@ -1,5 +1,25 @@
-<div class="container">
-    <h1>¡Hola <%= current_user.first_name %>!</h1>
+<div class="container mt-5">
+
+  <h1 class="display-4" >¡Hola <%= current_user.first_name %>!</h1>
+  <div class="profile d-flex justify-content-between">
+    <div class='flex-fill'>
+      <strong>Nombres y apellidos</strong>
+      <p><%= "#{@user.first_name} #{@user.last_name}" %></p>
+      <strong>Correo electrónico</strong>
+      <p><%= @user.email %></p>
+    </div>
+    <div class='flex-fill'>
+      <strong>Mis locales creados</strong>
+      <ul>
+        <% @places.each do |place| %>
+          <% if place.user_id == current_user.id %>
+            <li><%= link_to place.name, place_path(place) %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
 
   <div class="tabbed-pane-nav u-clearfix js-nav">
     <ul>
