@@ -10,7 +10,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.place = Place.find(params[:place_id])
-    redirect_to @booking.place, notice: "Your booking  has been created..."
+    @booking.save
+    if @booking.save
+      redirect_to @booking.place, notice: "Tu reserva ha sido creada"
+    else
+      flash[:alert] = @booking.errors.full_messages
+      redirect_to place_path(Place.find(params[:place_id]))
+    end
   end
 
 	private

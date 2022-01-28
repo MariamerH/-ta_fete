@@ -1,5 +1,5 @@
 <div class="container">
-  <div class='form-new'>
+  <div class='form'>
     <h1>Editar local</h1>
     <%= simple_form_for(@place) do |f| %>
       <%= f.input :name, placeholder: 'Título', label: false %>
@@ -7,7 +7,7 @@
       <%= f.input :description, placeholder: 'Descripción', label: false %>
       <%= f.input :price_per_day, placeholder: 'Precio por día', label: false %>
       <%= f.input :capacity,  placeholder: 'Capacidad', label: false %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true }, label: 'Sube fotos del local' %>
+      <%= f.input :photo, as: :file, label: 'Sube una foto del local' %>
       <%= f.button :submit, class: 'btn btn-primary', value: 'Editar local' %>
     <% end %>
   </div>

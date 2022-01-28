@@ -1,10 +1,10 @@
-<div class='form'>
-  <h1>Your booking</h1>
 
-  <div class="container">
+<div class="container">
+  <div class='form'>
+  <h1>Elige tu día de reservación</h1>
     <%= simple_form_for [@place, @booking] do |f| %>
-      <%= f.input :date %>
-      <%= f.button :submit, class: 'btn btn-primary' %>
+      <%= f.input :date, label: 'Elige una fecha' %>
+      <%= f.button :submit, class: 'btn btn-primary', value: 'Reserva' %>
     <% end %>
   </div>
 </div>

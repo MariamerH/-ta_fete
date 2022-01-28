@@ -8,7 +8,7 @@
       <%= f.input :description, placeholder: 'Descripción', label: false %>
       <%= f.input :price_per_day, placeholder: 'Precio por día', label: false %>
       <%= f.input :capacity,  placeholder: 'Capacidad', label: false %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true }, label: 'Sube fotos del local' %>
+      <%= f.input :photo, as: :file, label: 'Sube una foto del local' %>
       <%= f.button :submit, class: 'btn btn-primary', value: 'Publicar local' %>
     <% end %>
   </div>

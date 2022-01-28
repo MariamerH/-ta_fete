@@ -1,10 +1,8 @@
 <div class='container my-5'>
   <div class="row">
-    <% @place.photos.each_with_index do |photo, index| %>
       <div class="col-7">
-        <%= cl_image_tag photo.key, class: 'd-block', :width=>600, :height=>600, :crop=>:fit  %>
+        <%= cl_image_tag @place.photo.key, class: 'd-block', :width=>600, :height=>600, :crop=>:fit  %>
       </div>
-    <% end %>
     <div class="col-5">
         <div class="card h-100">
           <div class="card-body">
