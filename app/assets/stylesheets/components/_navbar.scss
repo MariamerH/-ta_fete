@@ -2,10 +2,13 @@
 
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+    background: #f8e4d9;
   a {
     text-decoration: black;
   }
+}
+.navbar-nav .active > .nav-link {
+  color: #355070;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -20,4 +23,8 @@
   font-family: 'Pacifico', cursive;
   color: #e56b6f;
 
+}
+
+.navbar-nav .nav-item{
+  font-family: 'Ubuntu', sans-serif;
 }
