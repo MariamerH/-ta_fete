@@ -1,13 +1,27 @@
 .form {
   background-color: white;
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&family=Ubuntu:wght@300&display=swap');
+.form-new {
+  background-color: #f8e4d9;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.219);
   border-radius: 5px;
   padding: 25px 25px;
   margin: 30px auto;
   width: 60%;
   h1 {
-    margin: 20px 0;
+    margin: 10px 0;
+    font-family: 'Ubuntu', sans-serif;
+    color: #355070;
   }
+  h2 {
+    font-family: 'Ubuntu', sans-serif;
+    color: #355070;
+  }
+  .form-inputs{
+    font-family: 'Ubuntu', sans-serif;
+    color: #355070;
+  }
+
 }
 
 .profile {
