@@ -34,6 +34,7 @@ gem 'simple_form'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
+gem 'turbolinks_render'
 
 group :development, :test do
   gem 'pry-byebug'

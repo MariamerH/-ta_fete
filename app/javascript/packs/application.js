@@ -27,4 +27,11 @@ import "bootstrap";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  // let bookmarkBtn = document.querySelector("#booking-btn");
+  // bookmarkBtn.addEventListener("click", (e) => {
+  //   let formBookmark = document.querySelector(".form-booking");
+  //   if (formBookmark) {
+  //     formBookmark.classList.toggle("hidden");
+  //   }
+  // });
 });
