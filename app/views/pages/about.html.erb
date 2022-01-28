@@ -17,6 +17,15 @@
           <% end %>
         <% end %>
       </ul>
+      <strong>Mis reservas creadas</strong>
+      <ul>
+        <% @bookings.each do |booking| %>
+        <% place = booking.place %>
+          <% if booking.user_id == current_user.id %>
+            <li><%= place.name %> reservado el <%= booking.date %></li>
+          <% end %>
+        <% end %>
+      </ul>
     </div>
   </div>
 
