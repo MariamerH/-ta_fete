@@ -8,4 +8,7 @@ class PagesController < ApplicationController
     @user = current_user
     @places = Place.all
   end
+
+  def booking
+  end
 end
